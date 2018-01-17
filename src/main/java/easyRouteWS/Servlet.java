@@ -48,6 +48,8 @@ public class Servlet extends HttpServlet {
 		
 		if(role.equals("get")) {
 			
+			
+			
 			ArrayList<Point> points = pointDAO.getPoints();
 
 			Gson gson = new GsonBuilder().create();

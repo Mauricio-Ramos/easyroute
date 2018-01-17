@@ -1,6 +1,8 @@
 package easyRouteWS;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -11,6 +13,10 @@ public class PointDAO {
 	
 	ArrayList<Point> listPoints = new ArrayList<Point>();
 	ArrayList<Comment> listComment = new ArrayList<Comment>();
+	
+	Connection connection = ConnectionMySQL.getConexao();
+	ResultSet result;	
+	//Point newPoint = new Point();	
 	
 	public int insertPoint(Point point) {		
 		int res = 0;
@@ -113,7 +119,7 @@ public class PointDAO {
 	public Point getPoints(int id) {
 		
 		Point newPoint = new Point();	
-		/*String query = "SELECT * FROM points WHERE id = "+id;
+		String query = "SELECT * FROM points WHERE id = "+id;
 		
 		try {
 			PreparedStatement statement = connection.prepareStatement(query);
@@ -135,8 +141,9 @@ public class PointDAO {
 			e.printStackTrace();
 		}
 		
-		return newPoint;*/
+		return newPoint;
 		
+		/*
 		listPoints.add(new Point(1, 10, 40, 1, "ponto1"));
 		listPoints.add(new Point(2, 20, 40, 2, "ponto2"));
 		listPoints.add(new Point(3, 30, 40, 3, "ponto3"));
@@ -145,6 +152,7 @@ public class PointDAO {
 		
 		newPoint = listPoints.get(id);
 		return newPoint;
+		*/
 	}
 	
 	public ArrayList<Comment> getComments(int id) {
